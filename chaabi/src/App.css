@@ -1,38 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to bottom right, rgb(202, 38, 38) , rgb(35, 35, 190)) !important;
+  color: #fff !important;
+}
+
 .App {
   text-align: center;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-heading {
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: right;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.content img{
+  width:70%;
+  height: 45%;
+  margin: auto;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content {
+  width: 80vw;
+  height: 75vh;
+  margin: 50px auto;
+  box-shadow: 0 0 30px rgb(241, 8, 8);
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 40px;
+}
+
+.prompt-box {
+  background-color: rgb(111, 165, 165);
+  color: black;
+  padding: 0.5rem;
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.typing-box>input {
+  width: 100%;
+  color: black;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.score {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.timer {
+  width: 100px;
+  margin: 30px auto 20px;
+  background-color: rgb(103, 4, 4);
   color: white;
+  padding: 20px;
+  border-radius: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+.timer-buttons>button {
+  background-color: teal;
+  
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 0px 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
