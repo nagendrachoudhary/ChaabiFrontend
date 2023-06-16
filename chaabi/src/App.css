@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom right, rgb(202, 38, 38) , rgb(35, 35, 190)) !important;
+  background-image: linear-gradient(358deg,#000,#222) !important;
   color: #fff !important;
 }
 
@@ -33,7 +33,7 @@ body {
   width: 80vw;
   height: 75vh;
   margin: 50px auto;
-  box-shadow: 0 0 30px rgb(241, 8, 8);
+  box-shadow: 0 0 30px rgb(40, 213, 14);
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -49,7 +49,78 @@ body {
   font-weight: 600;
   border-radius: 3px;
 }
+.Keybord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
 
+.row {
+  list-style: none;
+  display: flex;
+}
+
+.row-1 {
+  padding-left: 0em;
+}
+
+.row-2 {
+  padding-left: 0.25em;
+}
+
+.row-3 {
+  padding-left: 0.5em;
+}
+
+.row-4 {
+  padding-left: 0em;
+}
+.SPACEKEY {
+  height: 3em;
+  width: 21em;
+  color: #faf9f6;
+  font-family: Rufina;
+  border-radius: 0.4em;
+  line-height: 3em;
+  letter-spacing: 1px;
+  margin: 0.4em;
+  transition: 0.3s;
+  text-align: center;
+  font-size: 1em;
+  background-color: linear-gradient(to bottom, #000, #222);
+  border: 2px solid #555;
+  opacity: 0.8;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 0.25em;
+  margin-block-end: 0.25em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+}
+.active{
+  background-color: red;
+}
+ul div{
+  height: 6vh;
+  width: 5vw;
+  color: #faf9f6;
+  font-family: Rufina;
+  border-radius: 0.4em;
+  line-height: 3em;
+  letter-spacing: 1px;
+  margin: 0.4em;
+  transition: 0.3s;
+  text-align: center;
+  font-size: 1em;
+  background-color: linear-gradient(to bottom, #000, #222);
+  border: 2px solid #555;
+  opacity: 0.8;
+}
 .typing-box>input {
   width: 100%;
   color: black;

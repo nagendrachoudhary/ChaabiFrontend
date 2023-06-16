@@ -13,6 +13,7 @@ import {
   Heading,
   Progress,
   Box,
+  Text,
 } from "@chakra-ui/react";
 import { generatePromptThunkActionCreator } from "../redux/action";
 
@@ -45,9 +46,9 @@ function Timer(props) {
     payload: timer,
   });
 
-  function startGame() {
+ function startGame() {
     let id = setInterval(() => {
-      document.getElementById("backgroundMusic").play();
+      // document.getElementById("backgroundMusic").play();
       setTimer((prev) => prev - 1);
     }, 1000);
 
@@ -60,13 +61,10 @@ function Timer(props) {
 
     dispatch(generatePromptThunkActionCreator());
   }
-
   function endGame() {
-    
-    clearInterval(timerId);
-    setTimerId(undefined);
-    setTimer(300);
-    onOpen();
+      clearInterval(timerId);
+      setTimerId(undefined);
+      setTimer(300);
   }
 
   function getOverallAccuracy() {
@@ -85,11 +83,7 @@ function Timer(props) {
     if (timerValue === 300) {
       return 0;
     }
-
-    let minutes = timerValue / 60;
-
-    let speed = Math.round(total_words_count / ((300 - timerValue) / 60));
-
+    let speed = Math.round(total_words_count / ((300 - timer) / 60));
     return speed;
   }
   let minutes = Math.floor(timerValue / 60);
@@ -103,46 +97,19 @@ function Timer(props) {
         <source src="/second-hand-ticking-stopwatch-timer-149907_fewEiOdX.mp3" />
         Your browser does not support the audio element.
       </audio>
-      <Progress colorScheme="red" height="32px" value={timerValue / 3} />
       <Box display={'flex'} justifyContent={'space-between'} width={'50vw'} margin={'auto'} marginTop={'20px'} marginBottom={'-20px'}> 
-        <Box width={'70px'} borderRadius={'10px'} alignItems={'center'} display={'flex'} justifyContent={'center'} height={'40px'} bg={'teal'}>
-          <span>{`${minutes} : ${seconds}`}</span>
+        <Box width={'80px'} borderRadius={'10px'}   alignItems={'center'} display={'flex'} justifyContent={'center'} height={'50px'} bg={'teal'}>
+          <Text fontSize={'3xl'}>{`${minutes} : ${seconds}`}</Text>
         </Box>
         <Button
+          width={'50px'}
+          height={'50px'}
           bgColor={"teal"}
           color={"white"}
           onClick={!timerId ? startGame : endGame}>
           {!timerId ? "Start" : "End"}
         </Button>
       </Box>
-     
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent color={"black"} bgColor={"teal.500"}>
-          <ModalHeader>
-            <Heading color={"maroon"} textAlign={"center"}>
-              Score
-            </Heading>
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Box display={'flex'} alignItems={'center'} justifyContent={'space-evenly'}>
-              <Box>
-                <p style={{ color: "maroon", textDecoration: "underline" }}>
-                  Speed
-                </p>
-                <p>{getAverageSpeed()} wpm</p>
-              </Box>
-              <Box>
-                <p style={{ color: "maroon", textDecoration: "underline" }}>
-                  Accuracy
-                </p>
-                <p>{getOverallAccuracy()} %</p>
-              </Box>
-            </Box>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
     </div>
   );
 }
